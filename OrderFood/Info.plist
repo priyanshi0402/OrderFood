@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Brandon-Grotesque-blackItalic.otf</string>
+		<string>Brandon-Grotesque-black.otf</string>
+		<string>Brandon-Grotesque-bold-italic.otf</string>
+		<string>Brandon-Grotesque-bold.otf</string>
+		<string>Brandon-Grotesque-light-italic.otf</string>
+		<string>Brandon-Grotesque-light.otf</string>
+		<string>Brandon-Grotesque-mediumItalic.otf</string>
+		<string>Brandon-Grotesque-medium.otf</string>
+		<string>Brandon-Grotesque-regularItalic.otf</string>
+		<string>Brandon-Grotesque-regular.otf</string>
+		<string>Brandon-Grotesque-thinItalic.otf</string>
+		<string>Brandon-Grotesque-thin.otf</string>
+	</array>
+</dict>
+</plist>

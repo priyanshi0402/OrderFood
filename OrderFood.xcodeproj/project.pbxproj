@@ -29,9 +29,22 @@
 		635B4BEC2CB016730015FB21 /* OrderFoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderFoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		635B4C1D2CB3C0200015FB21 /* Exceptions for "OrderFood" folder in "OrderFood" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 635B4BCF2CB016710015FB21 /* OrderFood */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		635B4BD22CB016710015FB21 /* OrderFood */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				635B4C1D2CB3C0200015FB21 /* Exceptions for "OrderFood" folder in "OrderFood" target */,
+			);
 			path = OrderFood;
 			sourceTree = "<group>";
 		};
@@ -399,6 +412,7 @@
 				DEVELOPMENT_TEAM = 7KRV65Y334;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +442,7 @@
 				DEVELOPMENT_TEAM = 7KRV65Y334;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
