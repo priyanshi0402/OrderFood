@@ -14,7 +14,7 @@ enum DishCategory: String {
     case top = "Top"
 }
 
-struct HomeScreen: View {
+struct HomeView: View {
     
     var userName: String = "Kante"
     @State private var searchText: String = ""
@@ -32,7 +32,7 @@ struct HomeScreen: View {
     var body: some View {
         
         ZStack {
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     Image(.icMenu)
                     Spacer()
@@ -56,7 +56,6 @@ struct HomeScreen: View {
                         .foregroundStyle(._27214_D)
                         .font(.system(size: 20, weight: .semibold))
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 20)
                 
                 HStack {
@@ -64,7 +63,6 @@ struct HomeScreen: View {
                     Image(.icFilter)
                     
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 25)
                 
                 ScrollView(showsIndicators: false) {
@@ -113,7 +111,6 @@ struct HomeScreen: View {
          
             }
             .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
             
         }
         Spacer()
@@ -122,7 +119,7 @@ struct HomeScreen: View {
 }
 
 #Preview {
-    HomeScreen()
+    HomeView()
 }
 
 struct DishView: View {

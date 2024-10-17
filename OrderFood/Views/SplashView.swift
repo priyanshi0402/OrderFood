@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SplashScreen: View {
+struct SplashView: View {
     var body: some View {
         
         HStack {
@@ -57,5 +57,5 @@ struct SplashScreen: View {
 }
 
 #Preview {
-    SplashScreen()
+    SplashView()
 }
