@@ -24,8 +24,15 @@ struct OrderFoodApp: App {
     }()
 
     var body: some Scene {
+        
+        @AppStorage("firstName") var firstName: String = ""
+        
         WindowGroup {
-            TrackOrderScreen()
+            if firstName.isEmpty {
+                SplashView()
+            } else {
+                HomeView()
+            }
         }
     }
 }

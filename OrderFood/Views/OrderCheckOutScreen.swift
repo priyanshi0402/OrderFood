@@ -10,6 +10,7 @@ import SwiftUI
 struct OrderCheckOutScreen: View {
     
     @ObservedObject private var orderViewModel = OrderViewModel()
+    @State private var isPresentingScreen: Bool = false
     
     var body: some View {
         NavigationView {
@@ -32,7 +33,7 @@ struct OrderCheckOutScreen: View {
                     
                     Spacer()
                     Button {
-                        
+                        isPresentingScreen = true
                     } label: {
                         Text("Checkout")
                             .frame(width: 200, height: 56)
@@ -41,14 +42,18 @@ struct OrderCheckOutScreen: View {
                             .cornerRadius(10)
                             .font(.system(size: 16, weight: .medium))
                     }
-
+                    .fullScreenCover(isPresented: $isPresentingScreen) {
+                        InputCardDetailsView()
+                            .presentationBackground(.black.opacity(0.5))
+                    }
+                    
                 }
                 .padding()
             }
             .background(.clear)
         }
         .navigationBarTitle("My Basket", displayMode: .large)
-       
+        
     }
 }
 

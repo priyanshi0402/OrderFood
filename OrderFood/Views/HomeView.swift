@@ -16,9 +16,9 @@ enum DishCategory: String {
 
 struct HomeView: View {
     
-    var userName: String = "Kante"
     @State private var searchText: String = ""
     @State private var selectedCategory: DishCategory = .popular
+    @AppStorage("firstName") private var name: String = ""
     
     @ObservedObject var viewModel = DishViewModel()
     
@@ -31,87 +31,89 @@ struct HomeView: View {
     
     var body: some View {
         
-        ZStack {
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(.icMenu)
-                    Spacer()
-                    Button {
+        NavigationView {
+            ZStack {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(.icMenu)
+                        Spacer()
                         
-                    } label: {
-                        VStack {
-                            Image(.icShoppingBasket)
-                            Text("My basket")
-                                .foregroundStyle(._27214_D)
-                                .font(.system(size: 10))
-                        }
-                    }
-                }
-                
-                HStack {
-                    Text("Hello \(userName), ")
-                        .foregroundStyle(._27214_D)
-                        .font(.system(size: 20)) +
-                    Text("What fruit salad combo do you want today?")
-                        .foregroundStyle(._27214_D)
-                        .font(.system(size: 20, weight: .semibold))
-                }
-                .padding(.top, 20)
-                
-                HStack {
-                    CustomTextField(text: $searchText, placeHolder: "Search for fruit salad combos")
-                    Image(.icFilter)
-                    
-                }
-                .padding(.top, 25)
-                
-                ScrollView(showsIndicators: false) {
-                    Text("Recommended Combo")
-                        .font(.title3)
-                        .bold()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: columns) {
-                            ForEach(viewModel.dishes, id: \.id) { dish in
-                                DishView(dish: dish)
-                                    .frame(width: 170, height: 190)
-                                    .padding(5)
+                        NavigationLink(destination: OrderCheckOutScreen()) {
+                            VStack {
+                                Image(.icShoppingBasket)
+                                Text("My basket")
+                                    .foregroundStyle(._27214_D)
+                                    .font(.system(size: 10))
                             }
                         }
-                    }
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: [GridItem(.flexible())]) {
-                            ForEach(categories, id: \.rawValue) { category in
-                                DishCategoryView(category: category, isSelected: category == selectedCategory)
-                                    .onTapGesture {
-                                        selectedCategory = category
-                                    }
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 20)
                         
                     }
                     
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: [GridItem(.flexible())]) {
-                            ForEach(viewModel.hottestDishes, id: \.id) { dish in
-                                DishView(dish: dish)
-                                    .padding(5)
-                            }
-                        }
-                        .padding(.top, 20)
+                    HStack {
+                        Text("Hello \(name), ")
+                            .foregroundStyle(._27214_D)
+                            .font(.system(size: 20)) +
+                        Text("What fruit salad combo do you want today?")
+                            .foregroundStyle(._27214_D)
+                            .font(.system(size: 20, weight: .semibold))
+                    }
+                    .padding(.top, 20)
+                    
+                    HStack {
+                        CustomTextField(text: $searchText, placeHolder: "Search for fruit salad combos")
+                        Image(.icFilter)
                         
                     }
+                    .padding(.top, 25)
+                    
+                    ScrollView(showsIndicators: false) {
+                        Text("Recommended Combo")
+                            .font(.title3)
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHGrid(rows: columns) {
+                                ForEach(viewModel.dishes, id: \.id) { dish in
+                                    DishView(dish: dish)
+                                        .frame(width: 170, height: 190)
+                                        .padding(5)
+                                }
+                            }
+                        }
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHGrid(rows: [GridItem(.flexible())]) {
+                                ForEach(categories, id: \.rawValue) { category in
+                                    DishCategoryView(category: category, isSelected: category == selectedCategory)
+                                        .onTapGesture {
+                                            selectedCategory = category
+                                        }
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top, 20)
+                            
+                        }
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHGrid(rows: [GridItem(.flexible())]) {
+                                ForEach(viewModel.hottestDishes, id: \.id) { dish in
+                                    DishView(dish: dish)
+                                        .padding(5)
+                                }
+                            }
+                            .padding(.top, 20)
+                            
+                        }
+                        
+                    }
+                    .padding(.top, 25)
                     
                 }
-                .padding(.top, 25)
-         
+                .padding()
+                
             }
-            .padding()
-            
         }
         Spacer()
         
