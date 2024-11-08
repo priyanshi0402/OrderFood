@@ -11,7 +11,7 @@ import UIKit
 struct Dish {
     var id = UUID()
     var name: String
-    var image: ImageResource
-    var price: String
+    var image: String
+    var price: Double
     var isFavourite: Bool
 }

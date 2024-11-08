@@ -126,6 +126,7 @@ struct HomeView: View {
 
 struct DishView: View {
     var dish: Dish
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack {
@@ -156,13 +157,15 @@ struct DishView: View {
                 .lineLimit(nil)
             
             HStack {
-                Text("$ \(dish.price)")
+                Text("$ \(String(dish.price))")
                     .font(.body)
                     .foregroundStyle(.FFA_451)
                     .multilineTextAlignment(.leading)
                 Spacer()
                 Button {
-                    
+                    let orderDish = DishOrder(orderId: dish.id, name: dish.name, image: dish.image, price: dish.price, quantity: 1, isFavourite: dish.isFavourite)
+                    self.modelContext.insert(orderDish)
+                                        
                 } label: {
                     Image(.icPlus)
                         .resizable()

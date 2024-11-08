@@ -18,17 +18,17 @@ class DishViewModel: ObservableObject {
     
     func loadDishes() {
         dishes = [
-            Dish(name: "Honey lime combo", image: .honeyLimeCombo, price: "2,000", isFavourite: false),
-            Dish(name: "Berry mango combo", image: .berryMangoCombo, price: "8,000", isFavourite: false),
-            Dish(name: "Quinoa fruit salad", image: .quinoaFruitSalad, price: "10,000", isFavourite: false),
-            Dish(name: "Tropical fruit salad", image: .tropicalFruitSalad, price: "10,000", isFavourite: false),
-            Dish(name: "Melon fruit salad", image: .melonFruitSalad, price: "10,000", isFavourite: false)
+            Dish(name: "Honey lime combo", image: "honey_lime_combo", price: 5, isFavourite: false),
+            Dish(name: "Berry mango combo", image: "berry_mango_combo", price: 8.5, isFavourite: false),
+            Dish(name: "Quinoa fruit salad", image: "quinoa_fruit_salad", price: 10, isFavourite: false),
+            Dish(name: "Tropical fruit salad", image: "tropical_fruit_salad", price: 20, isFavourite: false),
+            Dish(name: "Melon fruit salad", image: "melon_fruit_salad", price: 9, isFavourite: false)
         ]
         
         hottestDishes = [
-            Dish(name: "Quinoa fruit salad", image: .quinoaFruitSalad, price: "10,000", isFavourite: false),
-            Dish(name: "Tropical fruit salad", image: .tropicalFruitSalad, price: "10,000", isFavourite: false),
-            Dish(name: "Melon fruit salad", image: .melonFruitSalad, price: "10,000", isFavourite: false)
+            Dish(name: "Quinoa fruit salad", image: "quinoa_fruit_salad", price: 10, isFavourite: false),
+            Dish(name: "Tropical fruit salad", image: "tropical_fruit_salad", price: 20, isFavourite: false),
+            Dish(name: "Melon fruit salad", image: "melon_fruit_salad", price: 9, isFavourite: false)
         ]
     }
 }

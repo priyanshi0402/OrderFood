@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct OrderCheckOutScreen: View {
     
     @ObservedObject private var orderViewModel = OrderViewModel()
     @State private var isPresentingScreen: Bool = false
+    @Query var dishes: [DishOrder]
     
     var body: some View {
         NavigationView {
             
             VStack {
-                List(orderViewModel.dishes, id: \.id) { dish in
+                List(dishes, id: \.id) { dish in
                     OrderCheckOutView(dish: dish)
                         .background(.clear)
                 }
@@ -26,12 +28,13 @@ struct OrderCheckOutScreen: View {
                     VStack(alignment: .leading) {
                         Text("Total")
                             .font(.system(size: 16, weight: .medium))
-                        Text("$60,000")
+                        Text("$35")
                             .foregroundStyle(Color._27214_D)
                             .font(.system(size: 24, weight: .medium))
                     }
                     
                     Spacer()
+                    
                     Button {
                         isPresentingScreen = true
                     } label: {
@@ -62,7 +65,7 @@ struct OrderCheckOutScreen: View {
 }
 
 struct OrderCheckOutView: View {
-    var dish: Dish
+    var dish: DishOrder
     
     var body: some View {
         VStack {
@@ -81,13 +84,13 @@ struct OrderCheckOutView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(dish.name)
                         .font(.system(size: 16, weight: .medium))
-                    Text("2 packs")
+                    Text("\(dish.quantity) packs")
                         .font(.system(size: 14, weight: .regular))
                 }
                 
                 Spacer()
                 
-                Text("$\(dish.price)")
+                Text("$\(String(dish.price))")
                     .font(.system(size: 16, weight: .regular))
                     .foregroundStyle(._27214_D)
                 
@@ -99,10 +102,11 @@ struct OrderCheckOutView: View {
 
 #Preview {
     OrderCheckOutView(
-        dish: Dish.init(
+        dish: DishOrder.init(
             name: "Tropical fruit salad",
-            image: .tropicalFruitSalad,
-            price: "10,000",
+            image: "",
+            price: 10,
+            quantity: 2,
             isFavourite: false
         )
     )
